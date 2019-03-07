@@ -35,6 +35,10 @@ export default class TableItem extends Component {
     return (
       <React.Fragment>
         {row.map((eachRow, i) => {
+          // const daState = Object.keys(this.state).filter(state => {
+          //   return state === `row${i}`;
+          // });
+
           if (rowLen === i + 1) {
             return (
               <React.Fragment key={i}>
@@ -43,11 +47,11 @@ export default class TableItem extends Component {
                     <Input
                       className="input_key"
                       name={`row${i}`}
-                      value={this.state + `${i}`}
+                      // value={daState}
                       onChange={this.handleChange}
                     />
                     <IconButton
-                      onClick={this.handleSubmit}
+                      onClick={stopEditing}
                       className="ml-4"
                       aria-label="Filter list"
                     >
@@ -76,7 +80,7 @@ export default class TableItem extends Component {
                     <Input
                       className="input_key"
                       name={`row${i}`}
-                      value={this.state + `${i}`}
+                      // value={daState}
                       onChange={this.handleChange}
                     />
                   </TableCell>
