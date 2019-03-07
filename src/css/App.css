@@ -1,0 +1,13 @@
+.App {
+  margin: 0 auto;
+  width: 60em;
+  font-family: Courier;
+}
+
+.header_text:hover {
+  cursor: pointer;
+}
+
+.input_key {
+  width: 6em;
+}
