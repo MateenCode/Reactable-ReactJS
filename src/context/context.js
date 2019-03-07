@@ -29,7 +29,14 @@ const reducer = (state, action) => {
             : "asc"
       };
     case "UPDATE_ROW":
-      return console.log("working");
+      return {
+        ...state,
+        rows: state.rows.map((eachRow, i) => {
+          return i === action.payload.index
+            ? (eachRow = action.payload.row)
+            : eachRow;
+        })
+      };
     default:
       return state;
   }

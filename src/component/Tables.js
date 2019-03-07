@@ -29,7 +29,12 @@ export default class Tables extends Component {
     });
   };
 
-  stopEditing = () => {
+  handleData = (dispatch, index, row) => {
+    dispatch({
+      type: "UPDATE_ROW",
+      payload: { index, row }
+    });
+
     this.setState({
       editMode: false,
       selectedIdx: -1
@@ -68,6 +73,7 @@ export default class Tables extends Component {
                   }
                   return sortedValue;
                 });
+
           return (
             <React.Fragment>
               {newRows === undefined ||
@@ -103,7 +109,7 @@ export default class Tables extends Component {
                         editMode={this.state.editMode}
                         selectedIdx={this.state.selectedIdx}
                         startEditing={this.startEditing.bind(this, i)}
-                        stopEditing={this.stopEditing}
+                        handleData={this.handleData.bind(this, dispatch, i)}
                       />
                     </TableRow>
                   ))}

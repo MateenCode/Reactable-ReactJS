@@ -12,33 +12,34 @@ export default class TableItem extends Component {
     row4: ""
   };
 
-  handleChange = event => {
+  inputChangeHandler = event => {
+    this.setState({ [event.target.id]: event.target.value });
+  };
+
+  handleSubmit = () => {
+    this.props.handleData([
+      this.state.row0,
+      this.state.row1,
+      this.state.row2,
+      this.state.row3,
+      this.state.row4
+    ]);
+
     this.setState({
-      [event.target.name]: event.target.value
+      row0: "",
+      row1: "",
+      row2: "",
+      row3: "",
+      row4: ""
     });
   };
 
-  handleSubmit = event => {
-    console.log(this.state);
-  };
-
   render() {
-    const {
-      row,
-      editMode,
-      index,
-      selectedIdx,
-      startEditing,
-      stopEditing
-    } = this.props;
+    const { row, editMode, index, selectedIdx, startEditing } = this.props;
     const rowLen = row.length;
     return (
       <React.Fragment>
         {row.map((eachRow, i) => {
-          // const daState = Object.keys(this.state).filter(state => {
-          //   return state === `row${i}`;
-          // });
-
           if (rowLen === i + 1) {
             return (
               <React.Fragment key={i}>
@@ -46,12 +47,11 @@ export default class TableItem extends Component {
                   <TableCell align="right">
                     <Input
                       className="input_key"
-                      name={`row${i}`}
-                      // value={daState}
-                      onChange={this.handleChange}
+                      id={`row${i}`}
+                      onChange={this.inputChangeHandler}
                     />
                     <IconButton
-                      onClick={stopEditing}
+                      onClick={this.handleSubmit}
                       className="ml-4"
                       aria-label="Filter list"
                     >
@@ -79,9 +79,8 @@ export default class TableItem extends Component {
                   <TableCell>
                     <Input
                       className="input_key"
-                      name={`row${i}`}
-                      // value={daState}
-                      onChange={this.handleChange}
+                      id={`row${i}`}
+                      onChange={this.inputChangeHandler}
                     />
                   </TableCell>
                 ) : (
