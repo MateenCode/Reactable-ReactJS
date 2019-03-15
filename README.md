@@ -62,3 +62,7 @@ query = 'chicken'
 7. Proficiency on designing state shape (Data Structures)
 8. Correct use of contexts and binds.
 9. Use of inline styles -- should be kept to a minimum.
+
+
+
+<img width="1028" alt="Screen Shot 2019-03-14 at 8 26 34 PM" src="https://user-images.githubusercontent.com/28902787/54406468-8365be80-4697-11e9-9efe-dd17e01a023e.png">
